@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const fs = require("fs");
 const cors = require("cors");
@@ -7,10 +9,11 @@ const port = 3000;
 
 // Cors configuration - Allows requests from localhost:4200
 const corsOptions = {
-  origin: "/localhost:4200",
+  origin: process.env.CORS_ORIGIN || "http://localhost:4200",
   optionsSuccessStatus: 204,
   methods: "GET, POST, PUT, DELETE",
 };
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, './uploads');
