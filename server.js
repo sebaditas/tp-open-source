@@ -5,8 +5,9 @@ const fs = require("fs");
 const cors = require("cors");
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
+// Cors configuration - Allows requests from localhost:4200
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' ? process.env.CORS_ORIGIN : '*',
   optionsSuccessStatus: 204,
@@ -25,6 +26,7 @@ const storage = multer.diskStorage({
 const multer = require('multer');
 
 const upload = multer({ storage: storage });
+
 
 // Use cors middleware
 app.use(cors(corsOptions));
