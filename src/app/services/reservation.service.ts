@@ -32,6 +32,6 @@ export class ReservationService {
       );
   }
   deleteReservation(reservationId: string): Observable<void> {
-    return this.http.delete<void>(`http://localhost:3000/reservations/${reservationId}`);
+    return this.http.delete<void>(`${this.apiUrl}/reservations/${reservationId}`);
   }
 }
