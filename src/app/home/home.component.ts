@@ -125,7 +125,7 @@ export class HomeComponent implements OnInit {
       .set('page', page.toString())
       .set('perPage', rows.toString());
 
-    this.http.get<Product[]>('http://localhost:3000/items').subscribe(data => {
+    this.http.get<Product[]>('https://my-json-server.typicode.com/HenryCenturion/demo/items').subscribe(data => {
       const loggedUser = localStorage.getItem('loggedUser');
       if (loggedUser) {
         const user = JSON.parse(loggedUser);
@@ -142,7 +142,7 @@ export class HomeComponent implements OnInit {
   }
 
   editProduct(product: Product) {
-    this.http.put(`http://localhost:3000/items/${product.id}`, product).subscribe({
+    this.http.put(`https://my-json-server.typicode.com/HenryCenturion/demo/items/${product.id}`, product).subscribe({
       next: (data) => {
         console.log(data);
         this.fetchProducts(0, this.rows);
@@ -169,7 +169,7 @@ export class HomeComponent implements OnInit {
     }
   }
   deleteProduct(productId: string) {
-    this.http.delete(`http://localhost:3000/items/${productId}`).subscribe({
+    this.http.delete(`https://my-json-server.typicode.com/HenryCenturion/demo/items/${productId}`).subscribe({
       next: (data) => {
         console.log(data);
         this.fetchProducts(0, this.rows);
@@ -196,7 +196,7 @@ export class HomeComponent implements OnInit {
           return;
         }
 
-        this.http.post(`http://localhost:3000/items`, productWithOwnerId).subscribe({
+        this.http.post(`https://my-json-server.typicode.com/HenryCenturion/demo/items`, productWithOwnerId).subscribe({
           next: (data) => {
             console.log(data);
             this.fetchProducts(0, this.rows);
