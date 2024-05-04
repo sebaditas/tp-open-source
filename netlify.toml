@@ -1,3 +1,1 @@
-[build]
-  command = "./start.sh"
-  publish = "dist/tf-frontend/browser"
+
