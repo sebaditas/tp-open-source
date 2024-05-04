@@ -9,7 +9,7 @@ const port = 3000;
 
 // Cors configuration - Allows requests from localhost:4200
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' ? process.env.CORS_ORIGIN : '*',
+  origin: process.env.CORS_ORIGIN || "http://localhost:4200",
   optionsSuccessStatus: 204,
   methods: "GET, POST, PUT, DELETE",
 };
@@ -91,20 +91,6 @@ app.get("/reservations", (req, res) => {
   });
 });
 
-// POST route - Allows to add a new item
-// example: localhost:3000/clothes
-/*
-  body: {
-    "image": "https://your-image-url.com/image.png",
-    "name": "T-shirt",
-    "price": "10",
-    "rating": 4
-  }
-*/
-// PUT route - Allows to update an item
-
-// POST route - Allows to add a new item
-// POST route - Allows to add a new item
 app.post("/items", (req, res) => {
   const { image, name, price, rating } = req.body;
   console.log('req.body in POST /clothes:', req.body); // Agregar esta línea
