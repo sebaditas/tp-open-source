@@ -62,7 +62,7 @@ export class ReservationComponent implements OnInit {
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('id');
     if (this.productId) {
-      this.http.get<any>('http://localhost:3000/items/' + this.productId).subscribe(product => {
+     this.http.get<any>('http://https://my-json-server.typicode.com/HenryCenturion/demo/items/' + this.productId).subscribe(product => {
         this.product = product;
         console.log('Fecha disponible:', this.product.date);
         console.log('Rango de tiempo disponible:', this.product.timeRange);
