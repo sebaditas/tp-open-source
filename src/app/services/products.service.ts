@@ -12,7 +12,7 @@ export class ProductsService {
   // Existing methods...
 
   getProductById = (id: string): Observable<Product> => {
-    const url = `http://localhost:3000/items/${id}`; // Replace with your actual API endpoint
+    const url = `https://my-json-server.typicode.com/HenryCenturion/demo/items/${id}`; 
     return this.apiService.get(url, { responseType: 'json' });
   };
 
