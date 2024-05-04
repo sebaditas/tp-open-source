@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map, Observable, tap} from 'rxjs';
 import {Product, Reservation} from "../../types";
-import {environment} from "../../environments/environment";
+import {environment} from "../../environment/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,6 @@ export class ReservationService {
       );
   }
   deleteReservation(reservationId: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/reservations/${reservationId}`);
+    return this.http.delete<void>(`http://localhost:3000/reservations/${reservationId}`);
   }
 }
