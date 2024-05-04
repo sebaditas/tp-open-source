@@ -39,8 +39,7 @@
       ></button>
     </div>
     <div *ngIf="loggedUser?.role === 'R' && loggedUser">
-      <button (click)="openReservationModal(product)">Ver info</button>
-    </div>
+  <button (click)="openReservationModal(product)" class="info-button">Ver info</button>    </div>
   </div>
 </div>
 <p-confirmPopup></p-confirmPopup>
