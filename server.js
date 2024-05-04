@@ -7,9 +7,8 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Cors configuration - Allows requests from localhost:4200
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || "http://localhost:4200",
+  origin: process.env.NODE_ENV === 'production' ? process.env.CORS_ORIGIN : '*',
   optionsSuccessStatus: 204,
   methods: "GET, POST, PUT, DELETE",
 };
