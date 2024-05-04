@@ -3,14 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map, Observable, tap} from 'rxjs';
 import {Product, Reservation} from "../../types";
-import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ReservationService {
-  private apiUrl = environment.apiUrl;
+  private apiUrl = 'https://my-json-server.typicode.com/HenryCenturion/demo';
 
   constructor(private http: HttpClient) { }
 
@@ -32,6 +31,6 @@ export class ReservationService {
       );
   }
   deleteReservation(reservationId: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/reservations/${reservationId}`);
+    return this.http.delete<void>(`https://my-json-server.typicode.com/HenryCenturion/demo/reservations/${reservationId}`);
   }
 }
